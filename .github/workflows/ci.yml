@@ -15,3 +15,10 @@ jobs:
     - uses: fwilhe2/setup-kotlin@0.0.4
     - run: kotlinc foo.kt -include-runtime -d hello.jar; java -jar hello.jar
     - run: kotlin foo.main.kts
+    - uses: fwilhe2/setup-kotlin@main
+      with:
+        script: |
+            #!/usr/bin/env kotlin
+            println("Hello from script")
+            File(System.getEnv("GITHUB_ENV")).writeText("action_state=yellow")
+    - run: echo $action_state
