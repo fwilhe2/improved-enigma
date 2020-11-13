@@ -19,12 +19,17 @@ jobs:
       with:
         script: |
             #!/usr/bin/env kotlin
+            fun setEnvVar(s: String) = java.io.File(System.getenv("GITHUB_ENV")).appendText(s + "\n")
             println("::group::foobar")
             println("Hello from script")
             println("::endgroup::")
             println(System.getenv("GITHUB_ENV"))
-            java.io.File(System.getenv("GITHUB_ENV")).appendText("action_state=yellow")
-            java.io.File(System.getenv("GITHUB_ENV")).appendText("abc=xyz")
-            java.io.File(System.getenv("GITHUB_ENV")).appendText("myvar=asasdfsdf")
-    - run: echo $action_state; echo $abc; echo $myvar
+            setEnvVar("action_state=yellow")
+            setEnvVar("abc=xyz")
+            setEnvVar("myvar=asasdfsdf")
+    - run: echo $action_state
+      shell: bash
+    - run: echo $abc
+      shell: bash
+    - run: echo $myvar
       shell: bash
