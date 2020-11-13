@@ -15,11 +15,11 @@ jobs:
     - uses: fwilhe2/setup-kotlin@0.0.4
     - run: kotlinc foo.kt -include-runtime -d hello.jar; java -jar hello.jar
     - run: kotlin foo.main.kts
-    - uses: fwilhe2/setup-kotlin@main
+    - uses: fwilhe2/setup-kotlin@err-handling
       with:
         script: |
             #!/usr/bin/env kotlin
-            fun setEnvVar(s: String) = java.asdf.File(System.getenv("GITHUB_ENV")).appendText(s + "\n")
+            fun setEnvVar(s: String) = java.io.File(System.getenv("GITHUB_ENV")).appendText(s + "\n")
             println("::group::foobar")
             println("Hello from script")
             println("::endgroup::")
