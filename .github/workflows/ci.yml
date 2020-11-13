@@ -19,6 +19,12 @@ jobs:
       with:
         script: |
             #!/usr/bin/env kotlin
+            println("::group::foobar")
             println("Hello from script")
-            java.io.File(System.getenv("GITHUB_ENV")).writeText("action_state=yellow")
-    - run: echo $action_state
+            println("::endgroup::")
+            println(System.getenv("GITHUB_ENV"))
+            java.io.File(System.getenv("GITHUB_ENV")).appendText("action_state=yellow")
+            java.io.File(System.getenv("GITHUB_ENV")).appendText("abc=xyz")
+            java.io.File(System.getenv("GITHUB_ENV")).appendText("myvar=asasdfsdf")
+    - run: echo $action_state; echo $abc; echo $myvar
+      shell: bash
