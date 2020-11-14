@@ -1,0 +1,1 @@
+fun exportVariable(name: String, value: String) = java.io.File(System.getenv("GITHUB_ENV")).appendText("${name}=${value}\n")

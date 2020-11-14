@@ -19,8 +19,7 @@ jobs:
       with:
         script: |
             #!/usr/bin/env kotlin
-            @file:Repository("https://maven.pkg.github.com/fwilhe2/actions-kotlin-helper")
-            @file:DependsOn("com.github.fwilhe2:actions-kotlin-helper:0.0.1")
+            @file:Import("common.main.kts")
 
             println("::group::foobar")
             println("Hello from script")
