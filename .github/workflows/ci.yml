@@ -19,14 +19,16 @@ jobs:
       with:
         script: |
             #!/usr/bin/env kotlin
-            fun setEnvVar(s: String) = java.io.File(System.getenv("GITHUB_ENV")).appendText(s + "\n")
+            @file:Repository("https://maven.pkg.github.com/fwilhe2/actions-kotlin-helper")
+            @file:DependsOn("com.github.fwilhe2:actions-kotlin-helper:0.0.1")
+
             println("::group::foobar")
             println("Hello from script")
             println("::endgroup::")
             println(System.getenv("GITHUB_ENV"))
-            setEnvVar("action_state=yellow")
-            setEnvVar("abc=xyz")
-            setEnvVar("myvar=asasdfsdf")
+            exportVariable("action_state", "yellow")
+            exportVariable("abc", "xyz")
+            exportVariable("myvar", "asasdfsdf")
     - run: echo $action_state
       shell: bash
     - run: echo $abc
