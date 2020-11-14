@@ -5,3 +5,7 @@ fun withGroup(name: String, fn: () -> Unit) {
     fn()
     println("::endgroup::")
 }
+
+fun getInput(name: String): String {
+    return System.getenv("INPUT_${name.replace(" ", "_").toUpperCase()}")
+}
