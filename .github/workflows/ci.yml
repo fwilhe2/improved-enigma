@@ -21,10 +21,10 @@ jobs:
             #!/usr/bin/env kotlin
             @file:Import("common.main.kts")
 
-            println("::group::foobar")
-            println("Hello from script")
-            println("::endgroup::")
-            println(System.getenv("GITHUB_ENV"))
+            withGroup("debug", {
+              println(System.getenv("GITHUB_ENV"))
+            })
+            
             exportVariable("action_state", "yellow")
             exportVariable("abc", "xyz")
             exportVariable("myvar", "asasdfsdf")
