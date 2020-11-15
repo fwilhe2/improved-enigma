@@ -12,37 +12,6 @@ jobs:
         os: [ ubuntu-20.04, windows-latest, macos-latest ]
     steps:
       - uses: actions/checkout@v2
-      - uses: fwilhe2/setup-kotlin@0.0.4
+      - uses: fwilhe2/setup-kotlin@simplify
       - run: kotlinc foo.kt -include-runtime -d hello.jar; java -jar hello.jar
-      - run: kotlin foo.main.kts
-      - uses: fwilhe2/setup-kotlin@main
-        name: Do stuff with Kotlin scripting
-        with:
-          version: "1.3.72"
-          script: |
-            #!/usr/bin/env kotlin
-            @file:Import("common.main.kts")
-
-            withGroup("debug"){
-              println(System.getenv("GITHUB_ENV"))
-            }
-
-            println("abc")
-
-            println("Using Kotlin " + getInput("version"))
-
-            exportVariable("action_state", "yellow")
-            exportVariable("abc", "xyz")
-            exportVariable("myvar", "asasdfsdf")
-      - run: echo $action_state
-        shell: bash
-      - run: echo $abc
-        shell: bash
-      - run: echo $myvar
-        shell: bash
-      - uses: fwilhe2/setup-kotlin@main
-        name: Read variable with Kotlin scripting
-        with:
-          script: |
-            #!/usr/bin/env kotlin
-            println(System.getenv("myvar"))
+ 
