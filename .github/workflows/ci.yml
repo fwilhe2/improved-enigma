@@ -12,10 +12,10 @@ jobs:
         os: [ ubuntu-20.04, windows-latest, macos-latest ]
     steps:
       - uses: actions/checkout@v2
-      - uses: fwilhe2/setup-kotlin@main
+      - uses: fwilhe2/setup-kotlin@update
       - run: kotlinc foo.kt -include-runtime -d hello.jar; java -jar hello.jar
       - run: kotlin foo.main.kts
-      - uses: fwilhe2/setup-kotlin@main
+      - uses: fwilhe2/setup-kotlin@update
         name: Do stuff with Kotlin scripting
         with:
           script: |
@@ -39,7 +39,7 @@ jobs:
         shell: bash
       - run: echo $myvar
         shell: bash
-      - uses: fwilhe2/setup-kotlin@main
+      - uses: fwilhe2/setup-kotlin@update
         name: Read variable with Kotlin scripting
         with:
           script: |
