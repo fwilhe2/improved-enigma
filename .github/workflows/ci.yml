@@ -13,12 +13,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: fwilhe2/setup-kotlin@main
-      - run: kotlinc foo.kt -include-runtime -d hello.jar; java -jar hello.jar
-      - run: kotlin foo.main.kts
-      - uses: fwilhe2/setup-kotlin@main
-        name: Do stuff with Kotlin scripting
-        with:
-          script: |
+
+      - run: |
             #!/usr/bin/env kotlin
             @file:Import("common.main.kts")
 
@@ -33,18 +29,4 @@ jobs:
             exportVariable("action_state", "yellow")
             exportVariable("abc", "xyz")
             exportVariable("myvar", "asasdfsdf")
-      - run: echo $action_state
-        shell: bash
-      - run: echo $abc
-        shell: bash
-      - run: echo $myvar
-        shell: bash
-      - uses: fwilhe2/setup-kotlin@main
-        name: Read variable with Kotlin scripting
-        with:
-          script: |
-            #!/usr/bin/env kotlin
-            println(System.getenv("myvar"))
-            if (System.getenv("myvar") != "asasdfsdf") {
-              throw RuntimeException("could not get env var")
-            }
+        shell: kotlin {0}          
