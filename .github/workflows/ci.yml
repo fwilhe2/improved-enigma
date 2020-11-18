@@ -9,12 +9,12 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ ubuntu-20.04, windows-latest, macos-latest ]
+        os: [ ubuntu-20.04 ]
     steps:
       - uses: actions/checkout@v2
       - uses: fwilhe2/setup-kotlin@main
-      - run: 'echo "mv $1 ~/script.main.kts; kotlin ~/script.main.kts" > ~/run.sh; chmod +x ~/run.sh'
-      - run: cat ~/run.sh
+      - run: 'echo "mv $1 ~/script.main.kts; kotlin ~/script.main.kts" > /opt/hostedtoolcache/kotlin/1.4.10/x64/kotlinc/bin/run.sh; chmod +x /opt/hostedtoolcache/kotlin/1.4.10/x64/kotlinc/bin/run.sh'
+      - run: cat /opt/hostedtoolcache/kotlin/1.4.10/x64/kotlinc/bin
       - run: echo $PATH
       - run: |
             #!/usr/bin/env kotlin
