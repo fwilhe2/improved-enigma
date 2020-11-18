@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: fwilhe2/setup-kotlin@main
-      - run: 'echo "mv \\$1 ~/script.main.kts; kotlin ~/script.main.kts" > /opt/hostedtoolcache/kotlin/1.4.10/x64/kotlinc/bin/run.sh; chmod +x /opt/hostedtoolcache/kotlin/1.4.10/x64/kotlinc/bin/run.sh'
+      - run: 'echo "mv \$1 ~/script.main.kts; kotlin ~/script.main.kts" > /opt/hostedtoolcache/kotlin/1.4.10/x64/kotlinc/bin/run.sh; chmod +x /opt/hostedtoolcache/kotlin/1.4.10/x64/kotlinc/bin/run.sh'
       - run: cat /opt/hostedtoolcache/kotlin/1.4.10/x64/kotlinc/bin/run.sh
       - run: echo $PATH
       - run: |
