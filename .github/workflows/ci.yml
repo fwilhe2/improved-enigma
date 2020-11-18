@@ -21,10 +21,5 @@ jobs:
               println(System.getenv("GITHUB_ENV"))
             }
 
-            println("abc")
-
-            println("Using Kotlin " + getInput("version"))
-
             exportVariable("action_state", "yellow")
-            exportVariable("abc", "xyz")
-            exportVariable("myvar", "asasdfsdf")
+        shell: kotlin {0}
