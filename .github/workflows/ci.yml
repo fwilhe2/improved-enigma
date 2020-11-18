@@ -13,9 +13,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: fwilhe2/setup-kotlin@main
-      - run: 'mv run.sh /opt/hostedtoolcache/kotlin/1.4.10/x64/kotlinc/bin/run.sh; chmod +x /opt/hostedtoolcache/kotlin/1.4.10/x64/kotlinc/bin/run.sh'
-      - run: cat /opt/hostedtoolcache/kotlin/1.4.10/x64/kotlinc/bin/run.sh
-      - run: echo $PATH
       - run: |
             #!/usr/bin/env kotlin
             @file:Import("common.main.kts")
@@ -31,4 +28,3 @@ jobs:
             exportVariable("action_state", "yellow")
             exportVariable("abc", "xyz")
             exportVariable("myvar", "asasdfsdf")
-        shell: run.sh {0}          
