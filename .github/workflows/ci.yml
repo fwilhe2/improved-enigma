@@ -14,7 +14,8 @@ jobs:
       - uses: actions/checkout@v2
       - uses: fwilhe2/setup-kotlin@main
       - run: 'echo "mv $1 ~/script.main.kts; kotlin ~/script.main.kts" > ~/run.sh; chmod +x ~/run.sh'
-
+      - run: cat ~/run.sh
+      - run: echo $PATH
       - run: |
             #!/usr/bin/env kotlin
             @file:Import("common.main.kts")
@@ -30,4 +31,4 @@ jobs:
             exportVariable("action_state", "yellow")
             exportVariable("abc", "xyz")
             exportVariable("myvar", "asasdfsdf")
-        shell: ~/run.sh {0}          
+        shell: run.sh {0}          
