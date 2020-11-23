@@ -4,11 +4,11 @@ on:
   workflow_dispatch:
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: fwilhe2/setup-kotlin@main
       - run: |
-            #!/usr/bin/env kotlin
+            #!/usr/bin/env -S kotlinc -script -- 
             println("hello")
         shell: kotlin {0}
