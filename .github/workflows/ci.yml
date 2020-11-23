@@ -11,4 +11,4 @@ jobs:
       - run: |
             #!/usr/bin/env kotlin
             println("hello")
-        shell: kotlin -e {0}
+        shell: kotlin {0}.main.kts
