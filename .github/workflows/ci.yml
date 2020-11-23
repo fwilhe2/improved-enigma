@@ -9,6 +9,6 @@ jobs:
       - uses: actions/checkout@v2
       - uses: fwilhe2/setup-kotlin@main
       - run: |
-            #!/usr/bin/env -S kotlinc -script -- 
+            #!/usr/bin/env kotlin
             println("hello")
-        shell: kotlin {0}
+        shell: kotlin -e {0}
