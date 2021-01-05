@@ -14,7 +14,8 @@ jobs:
       - uses: actions/checkout@v2
       - uses: fwilhe2/setup-kotlin@main
       - run: kotlinc foo.kt -include-runtime -d hello.jar; java -jar hello.jar
-      - run: kotlin foo.main.kts
+      - run: kotlin foo.main.kts; ls -la
+        shell: bash
       - uses: fwilhe2/setup-kotlin@main
         name: Do stuff with Kotlin scripting
         with:
