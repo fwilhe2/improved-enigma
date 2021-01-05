@@ -15,7 +15,7 @@ jobs:
       - uses: fwilhe2/setup-kotlin@native
       - run: kotlinc foo.kt -include-runtime -d hello.jar; java -jar hello.jar
       - run: kotlinc-native foo.kt
-      - run: program.exe
+      - run: ./program.exe
         if: ${{ matrix.os == 'windows-latest' }}
       - run: ./program.kexe
         if: ${{ matrix.os != 'windows-latest' }}
