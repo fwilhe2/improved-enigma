@@ -16,9 +16,9 @@ jobs:
       - run: kotlinc foo.kt -include-runtime -d hello.jar; java -jar hello.jar
       - run: kotlinc-native foo.kt
       - run: program.exe
-        if: ${{ matrix.os == windows-latest }}
+        if: ${{ matrix.os == 'windows-latest' }}
       - run: ./program.kexe
-        if: ${{ matrix.os != windows-latest }}
+        if: ${{ matrix.os != 'windows-latest' }}
       - run: kotlin foo.main.kts
       - uses: fwilhe2/setup-kotlin@main
         name: Do stuff with Kotlin scripting
