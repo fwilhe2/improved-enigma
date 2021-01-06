@@ -12,14 +12,7 @@ jobs:
         os: [ ubuntu-20.04, windows-latest, macos-latest ]
     steps:
       - uses: actions/checkout@v2
-      - name: Cache .konan
-        id: cache-konan
-        uses: actions/cache@v2
-        with:
-          path: .konan
-          key: ${{ runner.os }}-${{ hashFiles('.konan/**') }}
-          restore-keys: ${{ runner.os }}-
-      - uses: fwilhe2/setup-kotlin@native
+      - uses: fwilhe2/setup-kotlin@main
       - run: kotlinc foo.kt -include-runtime -d hello.jar; java -jar hello.jar
       - run: kotlinc-native foo.kt
       - run: ./program.exe
