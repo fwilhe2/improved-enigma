@@ -18,6 +18,7 @@ jobs:
         with:
           path: .konan
           key: ${{ runner.os }}-${{ hashFiles('.konan/**') }}
+          restore-keys: ${{ runner.os }}-
       - uses: fwilhe2/setup-kotlin@native
       - run: kotlinc foo.kt -include-runtime -d hello.jar; java -jar hello.jar
       - run: kotlinc-native foo.kt
