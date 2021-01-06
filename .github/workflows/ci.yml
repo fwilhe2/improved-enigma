@@ -17,6 +17,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: .konan
+          key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
       - uses: fwilhe2/setup-kotlin@native
       - run: kotlinc foo.kt -include-runtime -d hello.jar; java -jar hello.jar
       - run: kotlinc-native foo.kt
