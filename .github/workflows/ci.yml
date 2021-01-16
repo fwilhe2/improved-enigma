@@ -13,6 +13,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: fwilhe2/setup-kotlin@skip-native
+        with:
+          skip-native: true
       - run: kotlinc foo.kt -include-runtime -d hello.jar; java -jar hello.jar
 
       - run: kotlinc-native foo.kt
