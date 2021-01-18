@@ -12,5 +12,5 @@ jobs:
           version: 1.4.30-RC
       - run: |
             #!/usr/bin/env kotlin
-            println("hello")
+            java.io.File(".").listFiles().forEach {it -> println(it.getName().toString())}
         shell: kotlin -howtorun .main.kts {0}
