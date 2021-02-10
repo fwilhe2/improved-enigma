@@ -12,7 +12,9 @@ jobs:
         os: [ ubuntu-20.04, windows-latest, macos-latest ]
     steps:
       - uses: actions/checkout@v2
-      - uses: fwilhe2/setup-kotlin@main
+      - uses: fwilhe2/setup-kotlin@fix-native
+        with:
+          install-native: true
       - run: kotlinc foo.kt -include-runtime -d hello.jar; java -jar hello.jar
 
       - run: kotlinc-native foo.kt
