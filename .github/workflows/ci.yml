@@ -15,7 +15,7 @@ jobs:
       - uses: fwilhe2/setup-kotlin@main
         with:
           install-native: true
-          version: 1.9.10
+          version: 1.9.20
       - run: kotlinc foo.kt -include-runtime -d hello.jar; java -jar hello.jar
 
       - run: kotlinc-native foo.kt
