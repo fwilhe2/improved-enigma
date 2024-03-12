@@ -11,7 +11,7 @@ jobs:
       matrix:
         os: [ ubuntu-20.04, windows-latest, macos-latest ]
     steps:
-      - uses: actions/checkout@v4.1.1
+      - uses: actions/checkout@v4.1.2
       - run: kotlinc -version
       - uses: fwilhe2/setup-kotlin@main
         with:
