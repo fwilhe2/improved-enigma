@@ -16,7 +16,6 @@ jobs:
       - uses: fwilhe2/setup-kotlin@main
         with:
           install-native: true
-          version: "1.9.20"
       - run: kotlinc -version
 
       
