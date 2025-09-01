@@ -7,5 +7,5 @@ fun withGroup(name: String, fn: () -> Unit) {
 }
 
 fun getInput(name: String): String {
-    return System.getenv("INPUT_${name.replace(" ", "_").toUpperCase()}")
+    return System.getenv("INPUT_${name.replace(" ", "_").uppercase()}")
 }
